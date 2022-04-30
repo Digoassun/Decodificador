@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,28 +27,30 @@
             <fieldset class="field">
                 <h2 class="sub-title">Codifique/Decodifique sua mensagem</h2>
                 <div class="typeit">
-                    <label for="fname">Digite sua mensagem:</label><br>
+                    <label>Digite sua mensagem:</label><br>
                     <textarea id="entrada" rows="4" cols="50" placeholder="Sua mensagem aqui..." class="txt"></textarea><br>
                 </div>
                 <div id="selection" class="selection">
-                    <select name="select">
-                        <option value="valor1" selected></option>
-                        <option value="valor2">Base64</option>
-                        <option id="cifraOption" value="valor3">Cifra de César</option>
+                    <select id="select">
+                        <option value="1">Selecione:</option>
+                        <option value="2">Base64</option>
+                        <option id="cifraOption" value="3">Cifra de César</option>
                     </select>
                     <div id="passos" class="passos">
-                        <label for="passos">Quantidade de passos:</label>
-                        <input type="range" min="0" max="20" oninput="this.nextElementSibling.value = this.value" />
-                        <output>10</output>
+                        <label>Quantidade de passos:</label>
+                        <input type="range" min="0" max="25" oninput="this.nextElementSibling.value = this.value" />
+                        <output>12</output>
                     </div>
                 </div>
-                <div>
-                    <input name="code" checked type="radio">
+                <div id="radio">
+                    <input id="codifier" name="code" checked type="radio">
                     <label >Codificar</label><br>
-                    <input name="code" type="radio">
+                    <input id="decodifier" name="code" type="radio">
                     <label >Decodificar</label><br>
                 </div>
-                <input type="button" value="Escolha uma ação">
+                <div id="btn">
+
+                </div>
             </fieldset>
         </form>
     </main>
