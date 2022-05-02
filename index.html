@@ -31,11 +31,11 @@
                     <select id="select">
                         <option value="1">Selecione:</option>
                         <option value="2">Base64</option>
-                        <option id="cifraOption" value="3">Cifra de César</option>
+                        <option value="3">Cifra de César</option>
                     </select>
                     <div id="passos" class="passos">
                         <label>Quantidade de passos:</label>
-                        <input type="range" min="0" max="25" oninput="this.nextElementSibling.value = this.value" />
+                        <input id="key" type="range" min="0" max="25" oninput="this.nextElementSibling.value = this.value" />
                         <output>12</output>
                     </div>
                 </div>

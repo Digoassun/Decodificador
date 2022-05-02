@@ -15,34 +15,101 @@ select.addEventListener('click', function (event) {
 })
 
 
-//Funções para butões
+//Funções para aparecer os botões
 radio.addEventListener('click', function (event) {
     if (encode.checked) {
-        btn.innerHTML = `<input class="btnInput" id="btnEncoder" type="button" value="Codificar mensagem" onclick="encoder()">`
+        btn.innerHTML = `<input class="btnInput" id="btnEncoder" type="button" value="Codificar mensagem" >`
+        document.querySelector('#btnEncoder').addEventListener('click', encoder)
+
     } else if (decode.checked) {
         btn.innerHTML = `<input class="btnInput" id="btnDecoder" type="button" value="Decodificar mensagem" onclick="decoder()">`
+        document.querySelector('#btnDecoder').addEventListener('click', decoder)
     }
 })
 
 //Base64 e Cesar ENCODE
-// var btnEncoder = document.querySelector('#btnEncoder')
-// var btnDecoder = document.querySelector('#btnDecoder')
-var enterTxt = document.querySelector('#txt')
-var txtValue;
 var outTxt = document.querySelector('#finalTxt')
 
 function encoder() {
+    var enterTxt = document.querySelector('#txt').value
     if (select.value == '2' && encode.checked) {
-        txtValue = enterTxt.value
+        //Função Base64 ENCODE   
+        txtValue = enterTxt
         outTxt.value = btoa(txtValue)
+    } else if (select.value == '3' && encode.checked) {
+        encodeCesar()
     }
 }
+//Função Cifra de Cesar ENCODE 
+function encodeCesar() {
+    var enterTxt = document.querySelector('#txt').value
+    var key = document.querySelector('#key').value
+    var txtValue = ""
+
+    for (var i = 0; i < enterTxt.length; i++) {
+        var passo = parseInt(key)
+        var asciiNum = enterTxt[i].charCodeAt()
+        if (asciiNum >= 65 && asciiNum <= 90) {
+            var passMod = asciiNum + passo
+            if (passMod > 90) {
+                passMod = 64 + passMod - 90
+            }
+            txtValue += String.fromCharCode(passMod)
+        } else if (asciiNum >= 97 && asciiNum <= 122) {
+            var passMod = asciiNum + passo
+            if (passMod > 122) {
+                passMod = 96 + passMod - 122
+            }
+            txtValue += String.fromCharCode(passMod)
+        } else {
+            txtValue += enterTxt[i]
+        }
+    }
+    outTxt.value = txtValue
+}
+
 
 //Base64 e Cesar DECODE
-
 function decoder() {
+    var enterTxt = document.querySelector('#txt').value
     if (select.value == '2' && decode.checked) {
-        txtValue = enterTxt.value
+//Função Base64 DECODE 
+        txtValue = enterTxt
         outTxt.value = atob(txtValue)
+    } else if (select.value == '3' && decode.checked) {
+        decodeCesar()
     }
 }
+//Função Cifra de Cesar DECODE
+function decodeCesar() {
+    var enterTxt = document.querySelector('#txt').value
+    var key = document.querySelector('#key').value
+    var txtValue = ""
+
+    for (var i = 0; i < enterTxt.length; i++) {
+        var passo = parseInt(key)
+        var asciiNum = enterTxt[i].charCodeAt()
+        if (asciiNum >= 65 && asciiNum <= 90) {
+            var passMod = asciiNum - passo
+            if (passMod < 65) {
+                passMod = 90 - passMod + 64
+            }
+            txtValue += String.fromCharCode(passMod)
+        } else if (asciiNum >= 97 && asciiNum <= 122) {
+            var passMod = asciiNum - passo
+            if (passMod < 97) {
+                passMod = 122 - passMod + 96
+            }
+            txtValue += String.fromCharCode(passMod)
+        } else {
+            txtValue += enterTxt[i]
+        }
+    }
+    outTxt.value = txtValue
+}
+
+// ABCDEFGHIJKLMNOPQRSTUVWXYZ
+// abcdefghijklmnopqrstuvwxyz
+
+// Rodrigo Assuncao
+// Spesjhp Bttvodbp
