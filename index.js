@@ -92,13 +92,13 @@ function decodeCesar() {
         if (asciiNum >= 65 && asciiNum <= 90) {
             var passMod = asciiNum - passo
             if (passMod < 65) {
-                passMod = 90 - passMod + 64
+                passMod = 90 + passMod - 64
             }
             txtValue += String.fromCharCode(passMod)
         } else if (asciiNum >= 97 && asciiNum <= 122) {
             var passMod = asciiNum - passo
             if (passMod < 97) {
-                passMod = 122 - passMod + 96
+                passMod = 122 + passMod - 96
             }
             txtValue += String.fromCharCode(passMod)
         } else {
