@@ -6,7 +6,7 @@ var decode = document.querySelector('#decode')
 var btn = document.querySelector('#btn')
 
 //Função para aparecer os passos
-select.addEventListener('click', function (event) {
+select.addEventListener('change', function (event) {
     if (select.value == '3') {
         passos.style.display = 'flex'
     } else {
@@ -15,7 +15,7 @@ select.addEventListener('click', function (event) {
 })
 
 
-//Funções para aparecer os botões
+//Funções para aparecer os botões e o clique
 radio.addEventListener('click', function (event) {
     if (encode.checked) {
         btn.innerHTML = `<input class="btnInput" id="btnEncoder" type="button" value="Codificar mensagem" >`
@@ -52,13 +52,13 @@ function encodeCesar() {
         if (asciiNum >= 65 && asciiNum <= 90) {
             var passMod = asciiNum + passo
             if (passMod > 90) {
-                passMod = 64 + passMod - 90
+                passMod = passMod - 26
             }
             txtValue += String.fromCharCode(passMod)
         } else if (asciiNum >= 97 && asciiNum <= 122) {
             var passMod = asciiNum + passo
             if (passMod > 122) {
-                passMod = 96 + passMod - 122
+                passMod = passMod - 26
             }
             txtValue += String.fromCharCode(passMod)
         } else {
@@ -92,13 +92,13 @@ function decodeCesar() {
         if (asciiNum >= 65 && asciiNum <= 90) {
             var passMod = asciiNum - passo
             if (passMod < 65) {
-                passMod = 90 + passMod - 64
+                passMod = 26 + passMod
             }
             txtValue += String.fromCharCode(passMod)
         } else if (asciiNum >= 97 && asciiNum <= 122) {
             var passMod = asciiNum - passo
             if (passMod < 97) {
-                passMod = 122 + passMod - 96
+                passMod = 26 + passMod
             }
             txtValue += String.fromCharCode(passMod)
         } else {
