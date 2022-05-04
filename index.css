@@ -173,3 +173,31 @@ footer {
         height: 100px;
     }
 }
+
+@media(max-width:800px){
+    header{
+        font-size:1rem;
+    }
+
+    h2{
+        font-size: 0.9rem;
+    }
+
+    form{
+        font-size: 0.9rem;
+    }
+
+    .btnInput{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:500px){
+    .txt{
+        height: 80px;
+    }
+
+    footer{
+        position: fixed;
+    }
+}
