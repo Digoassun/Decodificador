@@ -174,30 +174,30 @@ footer {
     }
 }
 
-@media(max-width:800px){
-    header{
-        font-size:1rem;
+@media(max-width:800px) {
+    header {
+        font-size: 1rem;
     }
 
-    h2{
+    h2 {
         font-size: 0.9rem;
     }
 
-    form{
+    form {
         font-size: 0.9rem;
     }
 
-    .btnInput{
+    .btnInput {
         font-size: 1rem;
     }
 }
 
-@media(max-width:500px){
-    .txt{
+@media(max-width:500px) {
+    .txt {
         height: 80px;
     }
 
-    footer{
+    footer {
         position: fixed;
     }
 }

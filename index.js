@@ -20,9 +20,9 @@ radio.addEventListener('click', function (event) {
     if (encode.checked) {
         btn.innerHTML = `<input class="btnInput" id="btnEncoder" type="button" value="Codificar mensagem" >`
         document.querySelector('#btnEncoder').addEventListener('click', encoder)
-
+        
     } else if (decode.checked) {
-        btn.innerHTML = `<input class="btnInput" id="btnDecoder" type="button" value="Decodificar mensagem" onclick="decoder()">`
+        btn.innerHTML = `<input class="btnInput" id="btnDecoder" type="button" value="Decodificar mensagem">`
         document.querySelector('#btnDecoder').addEventListener('click', decoder)
     }
 })
@@ -73,7 +73,7 @@ function encodeCesar() {
 function decoder() {
     var enterTxt = document.querySelector('#txt').value
     if (select.value == '2' && decode.checked) {
-//Função Base64 DECODE 
+        //Função Base64 DECODE 
         txtValue = enterTxt
         outTxt.value = atob(txtValue)
     } else if (select.value == '3' && decode.checked) {
