@@ -1,4 +1,4 @@
-# Decodificador
+# Decodificador/Codificador
 Olá pessoal! Essa sprint proposta pela RESILIA educação foi um desafio de criar um codificador/decodificador de texto baseado em duas ferramentas:
 - <strong>Base 64</strong>
 - <strong>Cifra de César</strong>
